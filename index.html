@@ -57,8 +57,10 @@
   </div>
 
   <script>
+    const input = document.getElementById('tempInput');
+
     function predictWeather(){
-      const temp = parseFloat(document.getElementById('tempInput').value);
+      const temp = parseFloat(input.value);
       const emoji = document.getElementById('emoji');
       const result = document.getElementById('result');
 
@@ -75,7 +77,16 @@
         emoji.innerText = '🌧️';
         result.innerText = 'Rainy';
       }
+
+      input.value = '';   
+      input.focus();      
     }
+
+    input.addEventListener('keypress', function(e){
+      if(e.key === 'Enter'){
+        predictWeather();
+      }
+    });
   </script>
 </body>
 </html>
