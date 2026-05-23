@@ -13,6 +13,7 @@
       align-items:center;
       font-family:Arial,sans-serif;
       background:linear-gradient(135deg,#89f7fe,#66a6ff);
+      transition: 0.5s;
     }
     .card{
       background:white;
@@ -51,7 +52,6 @@
     <p>Enter temperature (°C):</p>
     <input type="number" id="tempInput" placeholder="Example: 28">
     <button onclick="predictWeather()">Predict</button>
-
     <div id="emoji">❔</div>
     <div id="result">Enter temperature</div>
   </div>
@@ -63,6 +63,7 @@
       const temp = parseFloat(input.value);
       const emoji = document.getElementById('emoji');
       const result = document.getElementById('result');
+      const body = document.body;
 
       if(isNaN(temp)){
         result.innerText = 'Enter valid number';
@@ -70,22 +71,23 @@
       } else if(temp >= 30){
         emoji.innerText = '☀️';
         result.innerText = 'Sunny';
+        body.style.background = 'linear-gradient(135deg, #f6d365, #fda085)';
       } else if(temp >= 20){
         emoji.innerText = '☁️';
         result.innerText = 'Cloudy';
+        body.style.background = 'linear-gradient(135deg, #bdc3c7, #2c3e50)';
       } else {
         emoji.innerText = '🌧️';
         result.innerText = 'Rainy';
+        body.style.background = 'linear-gradient(135deg, #4facfe, #003973)';
       }
 
-      input.value = '';   
-      input.focus();      
+      input.value = '';
+      input.focus();
     }
 
     input.addEventListener('keypress', function(e){
-      if(e.key === 'Enter'){
-        predictWeather();
-      }
+      if(e.key === 'Enter') predictWeather();
     });
   </script>
 </body>
