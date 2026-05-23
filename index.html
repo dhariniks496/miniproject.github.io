@@ -76,6 +76,10 @@
         emoji.innerText = '☁️';
         result.innerText = 'Cloudy';
         body.style.background = 'linear-gradient(135deg, #bdc3c7, #2c3e50)';
+      } else if(temp < 0){
+        emoji.innerText = '❄️';
+        result.innerText = 'Snowy';
+        body.style.background = 'linear-gradient(135deg, #e6f7ff, #b3d9ff)';
       } else {
         emoji.innerText = '🌧️';
         result.innerText = 'Rainy';
